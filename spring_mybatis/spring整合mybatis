@@ -1,0 +1,14 @@
+spring整合mybatis:
+    Mybatis可以操作数据库，其实就是从SqlSessionFactory中获取SqlSession，然后通过SqlSession来操作数据库。
+    所谓的spring整合Mybatis其实就是，将SqlSessionFactory交给Spring的IOC进行管理。
+    spring和Mybatis的整合包提供了一个SqlSessionFactoryBean，该对象是一个工厂bean，实现了FactoryBean
+    可以通过其getObject方法获取SqlSessionFactory。
+    整合mapper动态代理
+        我们一开始测试时，是先在容器中获取sqlSessionFactory，然后在SqlSessionFactory中获取SqlSession。最后是通过SqlSession获取UserMapper
+        这样操作过于繁琐。
+        mapper动态代理，其实就是将mapper装配到容器中。
+        装配单个mapper
+            spring提供了一个MapperFactoryBean，专门用于管理Mapper。底层还是通过SqlSession.getBean(XxxMapper.class)的方式获取mapper代理对象。
+        装配多个mapper
+            通过扫描包路径，来装配多个Mapper。
+            MapperScannerConfigurer：可以进行配置。
