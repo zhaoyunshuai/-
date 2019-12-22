@@ -11,4 +11,7 @@ spring整合mybatis:
             spring提供了一个MapperFactoryBean，专门用于管理Mapper。底层还是通过SqlSession.getBean(XxxMapper.class)的方式获取mapper代理对象。
         装配多个mapper
             通过扫描包路径，来装配多个Mapper。
-            MapperScannerConfigurer：可以进行配置。
+            MapperScannerConfigurer：可以进行配置
+整合SpringMVC。因为同一体系，所以不需要进行整合，自己配自己的即可，这里需要注意子父容器的问题。
+整合事务：这里基本没有什么变化，还是和之前一样，配置事务管理器(DataSourceTranSanctionManager)，配置事务策略，配置切面。
+    事务的注解模式也是一样的

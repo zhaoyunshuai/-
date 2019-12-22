@@ -17,4 +17,8 @@
     <select id="queryUserById" resultType="User">
         select * from tab_user where uid = #{id};
     </select>
+
+    <select id="queryAllUser" resultType="User">
+        select * from tab_user;
+    </select>
 </mapper>
